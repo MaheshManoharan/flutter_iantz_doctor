@@ -39,10 +39,11 @@ class _LoginScreenState extends State<LoginScreen> {
       _formKey.currentState.save();
 
       try {
-        AuthResult user = await _auth.signInWithEmailAndPassword(
-            email: _email, password: _password);
+        FirebaseUser user = (await _auth.signInWithEmailAndPassword(
+                email: _email, password: _password))
+            .user;
       } catch (e) {
-        showError(e.errorMessage);
+        showError(e.toString());
       }
     }
   }

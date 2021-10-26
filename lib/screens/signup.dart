@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
         FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
           email: _email,
           password: _password,
-        )) as FirebaseUser;
+        )).user;
         if (user != null) {
           UserUpdateInfo updateuser = UserUpdateInfo();
           updateuser.displayName = _name;
